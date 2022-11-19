@@ -1,0 +1,78 @@
+.post-card {
+  width: 85%;
+  margin: auto;
+  height: auto;
+  box-shadow: 0px 5px 10px grey;
+  padding: 10px 15px;
+  margin-bottom: 30px;
+  position: relative;
+  .post-info-user {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    img {
+      height: 30px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    p {
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+    i {
+      color: rgb(148, 148, 148);
+      cursor: pointer;
+      &:hover {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+
+  /* illustration */
+  .post-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 10px 0 10px 0;
+  }
+
+  /* likes et dislikes */
+  .post-likes {
+    width: 100%;
+    margin-top: 10px;
+    i {
+      cursor: pointer;
+    }
+    span {
+      margin-right: 15px;
+    }
+  }
+
+  /* modal parapètre post */
+  .post-modal-more {
+    position: absolute;
+    top: 45px;
+    right: 5px;
+    width: auto;
+    max-height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px grey;
+    ul {
+      list-style: none;
+      padding: 10px 10px 0 10px;
+      li {
+        margin-bottom: 10px;
+        cursor: pointer;
+        &:hover {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

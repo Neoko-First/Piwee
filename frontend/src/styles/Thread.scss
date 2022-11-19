@@ -1,0 +1,251 @@
+.thread-container {
+  ul {
+    list-style: none;
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 85%;
+      margin: auto;
+      height: auto;
+      min-height: 100px;
+      box-shadow: 0px 5px 10px grey;
+      padding: 10px 15px;
+      margin-bottom: 30px;
+      position: relative;
+      .post-info-user {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgb(228, 228, 228);
+        .name-and-date {
+          margin-bottom: 5px;
+          width: 100%;
+          .date-post {
+            color: grey;
+            font-size: 0.8rem;
+          }
+        }
+        .action-on-post {
+          margin-bottom: 5px;
+          display: flex;
+          i {
+            margin-left: 10px;
+          }
+        }
+        img {
+          height: 40px;
+          width: 40px;
+          object-fit: cover;
+          margin-right: 10px;
+          margin-bottom: 5px;
+          cursor: pointer;
+          border-radius: 50%;
+        }
+        p {
+          width: auto;
+        }
+        i {
+          color: rgb(148, 148, 148);
+          cursor: pointer;
+          &:hover {
+            color: rgb(0, 0, 0);
+          }
+        }
+      }
+      // titre du post
+      h2 {
+        margin-bottom: 10px;
+      }
+      // contenu du post
+      .post-text {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .update-post {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        input {
+          outline: 0;
+          border: 1px solid #fd2d01;
+          font-size: 1.5em;
+          font-weight: bold;
+          padding: 0 3px;
+          margin-bottom: 2px;
+        }
+        textarea {
+          resize: vertical;
+          max-height: 80px;
+          min-height: 70px;
+          padding: 0 3px;
+          outline: 0;
+          border: 1px solid #fd2d01;
+          font-size: 1rem;
+        }
+        button {
+          border: 0;
+          width: auto;
+          background-color: #fd2d01;
+          font-weight: bold;
+          color: white;
+          padding: 5px 10px;
+          cursor: pointer;
+          margin-top: 5px;
+        }
+      }
+      .post-text-open {
+        width: 100%;
+        white-space: pre-wrap;
+        overflow: all;
+      }
+
+      // illustration du post
+      .post-img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        margin: 10px 0 10px 0;
+      }
+
+      // footer de post
+      .post-footer {
+        width: 100%;
+        display: flex;
+        margin-top: 10px;
+        i {
+          cursor: pointer;
+        }
+        /* likes et dislikes */
+        .post-likes {
+          .fas {
+            color: #fd2d01;
+          }
+          span {
+            margin-right: 15px;
+          }
+        }
+      }
+      // espace commentaires
+      .comments-container {
+        width: 100%;
+        .add-comment {
+          margin-top: 15px;
+          width: 100%;
+          display: flex;
+          padding: 2px 5px 3px 5px;
+          img {
+            height: 30px;
+            width: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+          form {
+            width: 100%;
+            display: flex;
+            textarea {
+              margin-left: 10px;
+              width: 95%;
+              resize: none;
+              padding: 3px 5px 0px 5px;
+              outline: none;
+              border: 1px solid #b1b1b1;
+              transition: height 0.2s;
+              &:focus {
+                height: 50px;
+                outline: none;
+                border: 1px solid #fd2d01;
+              }
+            }
+            input[type="submit"] {
+              border: 0;
+              margin-left: 5px;
+              width: auto;
+              background-color: #fd2d01;
+              font-weight: bold;
+              color: white;
+              padding: 5px 10px;
+              cursor: pointer;
+            }
+          }
+        }
+        .comment-label {
+          margin-top: 10px;
+          width: 100%;
+          background-color: rgb(231, 231, 231);
+          .header-comment {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 2px 5px 3px 5px;
+            img {
+              height: 30px;
+              width: 30px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+            .comment-info {
+              margin-left: 10px;
+              .comment-author {
+                font-size: 0.9rem;
+              }
+              .comment-date {
+                color: grey;
+                font-size: 0.8rem;
+              }
+            }
+          }
+          .comment-content {
+            padding: 0px 5px 2px 5px;
+
+            p {
+              width: 100%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            span {
+              margin-left: 5px;
+            }
+            form {
+              width: 100%;
+            }
+            .comment-text-open {
+              width: 100%;
+              white-space: pre-wrap;
+            }
+          }
+        }
+      }
+      /* modal parapètre post */
+      .post-modal-more {
+        position: absolute;
+        top: 45px;
+        right: 5px;
+        width: auto;
+        display: none;
+        max-height: 100%;
+        background-color: #fff;
+        box-shadow: 0px 5px 10px grey;
+        ul {
+          list-style: none;
+          padding: 10px 10px 0 10px;
+          li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            &:hover {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      .show-post-modal-more {
+        display: block;
+      }
+    }
+  }
+}
