@@ -46,7 +46,6 @@ const Card = ({ post }) => {
     }
   };
 
-
   // lorsque les posts sont chargés, on stop le chargement pour éviter une boucle
   useEffect(() => {
     dispatch(getComments(post.id));
@@ -125,51 +124,53 @@ const Card = ({ post }) => {
                 </div>
               )}
             </section>
-            {/* titre du post */}
-            {!isUpdated ? (
-              <h2>{post.title}</h2>
-            ) : (
-              <div className="update-post">
-                <input
-                  defaultValue={post.title}
-                  onChange={(e) => setTitleUpdate(e.target.value)}
+            <section className="post-content">
+              {/* titre du post */}
+              {!isUpdated ? (
+                <h2>{post.title}</h2>
+              ) : (
+                <div className="update-post">
+                  <input
+                    defaultValue={post.title}
+                    onChange={(e) => setTitleUpdate(e.target.value)}
+                  />
+                </div>
+              )}
+              {/* Contenu texte (description du post).Animation de "développement" du texte au clic */}
+              {isUpdated === false && (
+                <p
+                  className={textIsOpen ? "post-text-open" : "post-text"}
+                  onClick={() => setTextIsOpen(!textIsOpen)}
+                >
+                  {post.description}
+                </p>
+              )}
+              {/* si la modification est demandée */}
+              {isUpdated === true && (
+                <div className="update-post">
+                  <textarea
+                    defaultValue={post.description}
+                    onChange={(e) => setTextUpdate(e.target.value)}
+                  />
+                  <button onClick={updateItem}>Modifier</button>
+                </div>
+              )}
+              {/* illustration (optionnelle) du post */}
+              {post.picture && (
+                <img
+                  className="post-img"
+                  src={require("../../assets/posts/" + post.picture)}
+                  alt={"Post de " + post.first_name}
                 />
+              )}
+              <div className="post-footer">
+                <LikeButton post={post} />
+                <i
+                  className="far fa-comment-alt"
+                  onClick={() => setShowComments(!showComments)}
+                ></i>
               </div>
-            )}
-            {/* Contenu texte (description du post).Animation de "développement" du texte au clic */}
-            {isUpdated === false && (
-              <p
-                className={textIsOpen ? "post-text-open" : "post-text"}
-                onClick={() => setTextIsOpen(!textIsOpen)}
-              >
-                {post.description}
-              </p>
-            )}
-            {/* si la modification est demandée */}
-            {isUpdated === true && (
-              <div className="update-post">
-                <textarea
-                  defaultValue={post.description}
-                  onChange={(e) => setTextUpdate(e.target.value)}
-                />
-                <button onClick={updateItem}>Modifier</button>
-              </div>
-            )}
-            {/* illustration (optionnelle) du post */}
-            {post.picture && (
-              <img
-                className="post-img"
-                src={require("../../assets/posts/" + post.picture)}
-                alt={"Post de " + post.first_name}
-              />
-            )}
-            <div className="post-footer">
-              <LikeButton post={post} />
-              <i
-                className="far fa-comment-alt"
-                onClick={() => setShowComments(!showComments)}
-              ></i>
-            </div>
+            </section>
             {showComments && <CardComments post={post} />}
             <div className="post-modal-more" id={post.id}>
               <ul>

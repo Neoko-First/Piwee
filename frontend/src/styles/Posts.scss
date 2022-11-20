@@ -2,16 +2,13 @@
   width: 85%;
   margin: auto;
   height: auto;
-  box-shadow: 0px 5px 10px grey;
   padding: 10px 15px;
-  margin-bottom: 30px;
   position: relative;
   .post-info-user {
     display: flex;
     align-items: center;
     width: 100%;
     margin-bottom: 10px;
-    border-bottom: 1px solid rgb(228, 228, 228);
     img {
       height: 30px;
       margin-right: 10px;
@@ -33,13 +30,17 @@
       }
     }
   }
-
+  // contenu du post
+  .post-content {
+    padding: 0 20px;
+  }
   /* illustration */
   .post-img {
     width: 100%;
     max-height: 300px;
-    object-fit: contain;
+    object-fit: cover;
     margin: 10px 0 10px 0;
+    background-color: $white;
   }
 
   /* likes et dislikes */

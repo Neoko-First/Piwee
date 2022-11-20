@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../appContext";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Route } from "react-router-dom";
-import "../../styles/AddPost.scss";
+import "../../styles/index.scss";
 import { addPost, getPosts } from "../../actions/post.actions";
 import { sanitizor } from "../Utils";
 
@@ -69,9 +69,8 @@ const NewPostForm = () => {
 
   return (
     <div className="form-add-post-container">
-      {uid ? (
+      {uid && (
         <form className="form-add-post" onChange={verifForm}>
-          <h1>Exprimez-vous !</h1>
           <label htmlFor="title">
             Titre : <span>*</span>
           </label>
@@ -79,49 +78,44 @@ const NewPostForm = () => {
             type="text"
             name="title"
             id="title"
+            placeholder="Titre"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <label htmlFor="description">
-            Déscription : <span>*</span>
+            Description : <span>*</span>
           </label>
           <input
             type="text"
             name="description"
             id="description"
+            placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <label htmlFor="description">Illustration :</label>
-          <section className="add-post-select-img">
-            <input
-              type="file"
-              name="post_image"
-              id="imgPost"
-              accept=".jpeg, .jpg, .png"
-              onChange={handlePicture}
-            />
-            <div className="add-post-select-canvas">
-              <img src={require("../../assets/add-img.png")} alt="ajout" />
-              {picture && <img src={picture} alt="ajout" />}
-            </div>
-          </section>
-          <button
-            type="submit"
-            className={validForm ? "submit-on" : "submit-off"}
-            onClick={handlePost}
-          >
-            Publier
-          </button>
-          <p className="add-post-notice">
-            <span>* </span>
-            <span>: Champs obligatoire</span>
-          </p>
+          <div className="postUtils">
+            <section className="add-post-select-img">
+              <input
+                type="file"
+                name="post_image"
+                id="imgPost"
+                accept=".jpeg, .jpg, .png"
+                onChange={handlePicture}
+              />
+              <div className="add-post-select-canvas">
+                <img src={require("../../assets/add-img.png")} alt="ajout" />
+                {picture && <img src={picture} alt="ajout" />}
+              </div>
+            </section>
+            <button
+              type="submit"
+              className={validForm ? "submit-on" : "submit-off"}
+              onClick={handlePost}
+            >
+              Publier
+            </button>
+          </div>
         </form>
-      ) : (
-        <NavLink to="/profil" exact="true">
-          <span className="invite-to-connect">Se connecter</span>
-        </NavLink>
       )}
     </div>
   );

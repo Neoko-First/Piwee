@@ -85,15 +85,17 @@ function Posts() {
         <p>{post.userName}</p>
         <i onClick={() => setIsOpen(!isOpen)} className="fas fa-ellipsis-h"></i>
       </section>
-      <h2>{post.title}</h2>
-      <p>{post.description}</p>
-      {post.imgUrl && (
-        <img
-          className="post-img"
-          src={userIcon}
-          alt={"Post de " + post.userName}
-        />
-      )}
+      <section className="post-content">
+        <h2>{post.title}</h2>
+        <p>{post.description}</p>
+        {post.imgUrl && (
+          <img
+            className="post-img"
+            src={userIcon}
+            alt={"Post de " + post.userName}
+          />
+        )}
+      </section>
       <section className="post-likes">
         {post.liked ? (
           // <i className="fas fa-thumbs-up" onClick={() => onLike(+1)}></i>

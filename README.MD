@@ -16,7 +16,7 @@ CREATE TABLE posts(
     title VARCHAR(200), 
     description VARCHAR(500), 
     picture VARCHAR(200),  
-    createdDate DATE 
+    createdDate DATETIME
 ); 
 
  CREATE TABLE comments(

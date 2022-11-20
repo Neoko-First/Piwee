@@ -9,16 +9,16 @@
       margin: auto;
       height: auto;
       min-height: 100px;
-      box-shadow: 0px 5px 10px grey;
+      border-bottom: 1px solid $tercery;
+      border-left: 1px solid $tercery;
+      border-right: 1px solid $tercery;
       padding: 10px 15px;
-      margin-bottom: 30px;
       position: relative;
       .post-info-user {
         display: flex;
         align-items: center;
         width: 100%;
         margin-bottom: 10px;
-        border-bottom: 1px solid rgb(228, 228, 228);
         .name-and-date {
           margin-bottom: 5px;
           width: 100%;
@@ -108,15 +108,15 @@
       .post-img {
         width: 100%;
         max-height: 300px;
-        object-fit: contain;
+        object-fit: cover;
         margin: 10px 0 10px 0;
+        background-color: $white;
       }
 
       // footer de post
       .post-footer {
         width: 100%;
         display: flex;
-        margin-top: 10px;
         i {
           cursor: pointer;
         }
@@ -246,6 +246,45 @@
       .show-post-modal-more {
         display: block;
       }
+    }
+  }
+  .addPostBtn {
+    background-color: $primary;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    a {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 50px;
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+  .toTop {
+    background-color: $primary;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    i {
+      font-size: 25px;
+      color: $white;
+      font-weight: bold;
     }
   }
 }

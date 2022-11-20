@@ -1,6 +1,5 @@
 .form-add-post-container {
   width: 100%;
-  padding-top: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,9 +7,10 @@
     width: 85%;
     margin: auto;
     height: auto;
-    box-shadow: 0px 5px 10px grey;
     padding: 10px 15px;
-    margin-bottom: 30px;
+    border-bottom: 1px solid $tercery;
+    border-left: 1px solid $tercery;
+    border-right: 1px solid $tercery;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -19,29 +19,29 @@
     }
     label {
       span {
-        color: #fd2d01;
+        color: $primary;
       }
     }
     input {
       margin-bottom: 10px;
       border: 0;
       outline: 0;
-      border-bottom: 1px solid #b8b8b8;
+      background-color: transparent;
       padding: 10px;
       transition: 0.3s;
-      &:focus {
-        margin-bottom: 10px;
-        border: 0;
-        outline: 0;
-        border-bottom: 1px solid #fd2d01;
-        padding: 10px;
-      }
+      color: $white;
+      // &:focus {
+      //   margin-bottom: 10px;
+      //   border: 0;
+      //   outline: 0;
+      //   border-bottom: 1px solid #fd2d01;
+      //   padding: 10px;
+      // }
     }
     .add-post-select-img {
-      width: 100%;
-      height: 200px;
+      width: 30px;
+      height: 30px;
       position: relative;
-      margin: 10px 0 10px 0;
       input[type="file"] {
         border: 0;
         padding: 0;
@@ -52,14 +52,12 @@
     }
     .add-post-select-canvas {
       background-color: rgb(212, 212, 212);
-      border: 1px dashed black;
       position: absolute;
       height: 100%;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px;
       pointer-events: none;
       img {
         height: 100%;
@@ -72,9 +70,10 @@
       border: 0;
       padding: 0;
       width: auto;
+      height: 100%;
       font-weight: bold;
       color: white;
-      padding: 10px 0;
+      padding: 0px 10px;
       transition: 0.5s;
     }
     .submit-off {
@@ -96,18 +95,33 @@
     }
   }
 
-  .invite-to-connect {
+  .add-post-select-canvas form label span {
+    color: #fd2d01;
+  }
+
+  .loginCall {
+    width: 85%;
+    border-bottom: 1px solid $tercery;
+    border-left: 1px solid $tercery;
+    border-right: 1px solid $tercery;
+    .invite-to-connect {
     border: 0;
     padding: 0;
     width: auto;
-    background-color: #fd2d01;
+    background-color: $primary;
     font-weight: bold;
     color: white;
     padding: 10px 10px;
     cursor: pointer;
   }
-
-  .add-post-select-canvas form label span {
-    color: #fd2d01;
   }
+}
+
+.postUtils {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }

@@ -5,11 +5,11 @@ require("dotenv").config({ path: "./config/.env" });
 const mysql = require("mysql");
 
 // paramètres de connexion à la BDD
-const db = mysql.createConnection({ 
+const db = mysql.createConnection({  
   host: "localhost",
   user: "root", 
   password: process.env.DB_USER_PATH,
-  database: "groupomaniadb",
+  database: "piwee",
 }); 
 
 // export pour utiliser cette connexion 
