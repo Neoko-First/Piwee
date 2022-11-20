@@ -229,8 +229,9 @@
         width: auto;
         display: none;
         max-height: 100%;
-        background-color: #fff;
-        box-shadow: 0px 5px 10px grey;
+        background-color: $white;
+        color: $black;
+        
         ul {
           list-style: none;
           padding: 10px 10px 0 10px;

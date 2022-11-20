@@ -31,6 +31,7 @@ $shadow: rgb(219, 218, 218);
   border: none;
   text-decoration: none;
   user-select: none;
+  scroll-behavior: smooth;
   &::selection {
     background: $primary;
   }
