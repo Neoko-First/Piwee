@@ -6,7 +6,6 @@ import Card from "./Post/Card";
 
 // importe le style
 import "../styles/Thread.scss";
-import AddPost from "./Post/AddPost";
 
 const Thread = () => {
   const [loadPost, setLoadPost] = useState(true);
@@ -47,7 +46,6 @@ const Thread = () => {
             return <Card post={post} key={post.id} />;
           })}
       </ul>
-      <AddPost />
     </div>
   );
 };

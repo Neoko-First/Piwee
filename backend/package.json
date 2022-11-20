@@ -9,6 +9,8 @@
   "author": "Neoko",
   "license": "ISC",
   "dependencies": {
+    "@mui/material": "^5.10.14",
+    "@mui/styled-engine-sc": "^5.10.14",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
     "cookie-parser": "^1.4.6",
@@ -20,6 +22,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
     "password-validator": "^5.2.1",
+    "styled-components": "^5.3.6",
     "validator": "^13.7.0"
   }
 }

@@ -5,14 +5,11 @@ import Routes from "./Routes";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getUser } from "../actions/user.actions";
-import { useTheme } from "@mui/material";
 
 function App() {
   // de base l'id du user est null, jusqu'à la connexion
   const [uid, setUid] = useState(null);
   const dispatch = useDispatch();
-
-  const theme = useTheme();
 
   // contrôle l'id du user à chaque chargement du projet
   useEffect(() => {
