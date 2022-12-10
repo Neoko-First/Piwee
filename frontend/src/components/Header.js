@@ -1,60 +1,150 @@
-// importe le style
-import "../styles/index.scss";
-// importe le logo
-import logo from "../assets/logo.png";
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
 
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+const pages = ["Products", "Pricing", "Blog"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function Header() {
-  // État du chargement des posts
-  const [isLoading, setIsLoading] = useState(true);
-  // récupération de tout les données de l'utilisateur courant
-  const userData = useSelector((state) => state.userReducer);
+export default function Header({ drawer, openDrawer }) {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  // lorsque les infos sont chargés, on stop le chargement pour éviter une boucle
-  useEffect(() => {
-    userData.picture != null && setIsLoading(false);
-  }, [userData]);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-  console.log(userData);
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
-    <header>
-      <section className="logo">
-        <NavLink exact="true" to="/">
-          {/* <img src={logo} alt="Groupomania" /> */}
-          <h3>PIWEE</h3>
-        </NavLink>
-      </section>
-      <section className="utils">
-        <nav>
-          {/* <NavLink to="/publier" exact="true">
-            <i className="fas fa-plus-square"></i>
-          </NavLink> */}
-          <NavLink
-            to="/profil"
-            exact="true"
-            className={"avatar"}
-            title={userData.first_name + " " + userData.last_name}
+    <AppBar position="static" sx={{ position: "fixed", zIndex: 10 }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              textDecoration: "none",
+            }}
+            color="white"
           >
-            {!isLoading ? (
-              <img
-                src={require(`../assets/profil/${userData.picture}`)}
-                alt={userData.first_name}
-              />
-            ) : (
-              <img
-                src={require(`../assets/profil/random-user.png`)}
-                alt={"test"}
-              />
-            )}
-          </NavLink>
-        </nav>
-      </section>
-    </header>
+            PIWEE
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="white"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            color="white"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              textDecoration: "none",
+            }}
+          >
+            PIWEE
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Profil">
+              <IconButton
+                href="/profile"
+                /*onClick={() => openDrawer(!drawer)}*/ sx={{ p: 0 }}
+              >
+                <Avatar
+                  alt="Neoko"
+                  src="/static/images/avatar/2.jpg"
+                  sx={{ bgcolor: "#b5179e" }}
+                />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
-
-export default Header;

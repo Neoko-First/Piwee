@@ -1,4 +1,5 @@
 import axios from "axios";
+import api_url from "../Api";
 
 // posts
 export const GET_POSTS = "GET_POSTS";
@@ -11,7 +12,7 @@ export const DELETE_POST = "DELETE_POST";
 export const getPosts = (numb) => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:5000/api/posts/`)
+      .get(`${api_url}/api/posts/`)
       .then((res) => {
         // ne remplie le tableau qu'avec le nombre de post souhaité pour le infinite scroll
         const array = res.data.slice(0, numb);

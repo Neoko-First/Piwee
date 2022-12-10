@@ -2,7 +2,7 @@
 // const jwt = require("jsonwebtoken");
 
 // // Appel de .env pour utiliser les variables d'environnement (npm install dotenv --save)
-// require("dotenv").config();
+// require("dotenv").config(); 
 
 // // middleware d'authentification :
 // module.exports = (req, res, next) => {

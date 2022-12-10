@@ -1,20 +1,14 @@
 import React from "react";
-import Header from "../components/Header";
-import Thread from "../components/Thread";
+import Card from "../components/Posts/PostCard";
 
-// importe le style
-import "../styles/Home.scss";
-
-const Home = () => {
-
+export default function Home() {
   return (
-    <div>
-      <Header />
-      <div className="post-list-container">
-        <Thread />
-      </div>
+    <div className="threadContainer">
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </div>
   );
-};
-
-export default Home;
+}

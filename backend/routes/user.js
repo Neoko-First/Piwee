@@ -24,7 +24,7 @@ router.post("/login", userCtrl.login);
 
 // appel au controller de déconnexion
 router.get("/logout", userCtrl.logout);
-
+ 
 // appel au controller de recupération de tout les users
 router.get("/", userCtrl.getAllUsers);
 

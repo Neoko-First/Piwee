@@ -1,0 +1,109 @@
+.login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loginContainer {
+    background-color: $primary;
+    color: $white;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+      0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+    .loginField {
+      width: 100%;
+      margin-bottom: 15px;
+      input {
+        width: 100%;
+        border-color: $white !important;
+        color: $white;
+      }
+    }
+    button {
+      margin-bottom: 15px;
+      color: $white;
+      background-color: $tercery;
+    }
+    p {
+      span {
+        color: $tercery;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.signup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .signupContainer {
+    background-color: $primary;
+    color: $white;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+      0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+    .signupField {
+      width: 100%;
+      margin-bottom: 15px;
+      input {
+        width: 100%;
+        border-color: $white !important;
+        color: $white;
+      }
+    }
+    button {
+      margin-bottom: 15px;
+      color: $white;
+      background-color: $tercery;
+    }
+    p {
+      span {
+        color: $tercery;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.formFadeIn {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+.formFadeOut {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}

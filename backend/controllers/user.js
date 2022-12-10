@@ -5,6 +5,7 @@ const validator = require("validator");
 
 // Importe le fichier de config de la connexion à la bdd
 const dbConfig = require("../config/db");
+const { RandomColor } = require("../utils/RandomColor");
 
 // Appel de .env pour utiliser les variables d'environnement (npm install dotenv --save)
 require("dotenv").config();
@@ -23,11 +24,13 @@ exports.signup = async (req, res, next) => {
 
       // objet user avec certains paramètre par défaut
       const user = {
-        ...req.body,
+        pseudo: req.body.pseudo,
+        bio: null,
         email: req.body.email.trim(),
         password: encryptedPassword,
         active: 1,
-        picture: "random-user.png",
+        picture: null,
+        color: RandomColor,
         super: 0,
       };
 
@@ -105,7 +108,7 @@ exports.login = async (req, res, next) => {
               const token = createToken(id);
 
               // mise en place du cookie
-              res.cookie("jwt", token, {
+              res.cookie("jwt", token, {  
                 // sécurité du cookie (consultable uniquement par notre serveur)
                 httpOnly: true,
                 maxAge: maxAge,
@@ -118,7 +121,7 @@ exports.login = async (req, res, next) => {
             res.status(200).json({
               errors: {
                 email: "Email inconnu",
-                password: "",
+                password: "", 
               },
             });
           }
